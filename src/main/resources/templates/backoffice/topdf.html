@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  
+  <script type="text/javascript">
+    $("#btnPrint").live("click", function () {
+      var divContents = $("#text").html();
+      var printWindow = window.open('', '', 'height=400,width=800');
+      printWindow.document.write('<html><head><title>Html to PDF</title>');
+      printWindow.document.write('</head><body >');
+      printWindow.document.write(document.getElementById('text').innerHTML);
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+      printWindow.print();
+    });
+  </script>
+  </head>
+  <body>
+    <form id="form1">
+    <div id="text">
+      <h1>titre</h1>Convert this text to PDF.
+    </div>
+      <input type="button" value="Print Div Contents" id="btnPrint" />
+    </form>
+  </body>
+</html>
